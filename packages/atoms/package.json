@@ -1,0 +1,20 @@
+{
+  "name": "@abhic91/atoms",
+  "version": "1.0.0",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/types",
+  "author": "Abhilash",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhic91/c91-pkg2.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.ts",
+    "publish": "yarn publish"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@abhic91/molecules",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Abhilash",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhic91/c91-pkg2.git"
+  }
+}
