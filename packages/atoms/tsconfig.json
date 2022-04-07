@@ -10,5 +10,5 @@
       "target": "ESNext"
     },
     "include": ["./**/*"],
-    "exclude": ["./**/*.stories.tsx", "./lib", "./node_modules"]
+    "exclude": ["./**/*.stories.tsx", "./lib", "./node_modules", "./lib/types/**/*.d.ts"]
   }

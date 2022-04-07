@@ -17,7 +17,7 @@ export default {
       format: "es",
     },
   ],
-  external: ["react", "react-dom", "@emotion", "@mui/material"],
+  external: ["react", "react-dom", "@emotion", "@mui/material", "@mui/style"],
   plugins: [
     resolve(),
     external(),
