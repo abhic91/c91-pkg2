@@ -41,9 +41,11 @@ const CustomTextField = ({
   return (
     <TextField
       {...otherProps}
+      data-testid="customTextFieldTestId"
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
       inputProps={{
+        "data-testid": "customTextFieldInputTestId",
         sx: textAllCaps
           ? {
               textTransform: {
