@@ -1,6 +1,6 @@
-import { createTheme, ThemeProvider } from "@mui/material";
 import React from "react";
-import getCommonComponentSettings from "../packages/atoms/component-settings/ComponentSettings";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../packages/atoms/theme/defaultTheme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,11 +14,6 @@ export const parameters = {
 
 export const decorators = [
   (Story) => {
-    const defaultTheme = createTheme({});
-    const theme = createTheme(
-      defaultTheme,
-      getCommonComponentSettings(defaultTheme, "sans-serif")
-    );
     return (
       <ThemeProvider theme={theme}>
         <Story />
