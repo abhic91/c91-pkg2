@@ -1,7 +1,8 @@
 import { IButtonProps } from "./Button.types";
 import styled, { css, ThemeProvider, useTheme } from "styled-components";
 import { ITheme } from "../theme/theme.types";
-import { colors } from "../theme/defaultTheme";
+import { colors, theme } from "../theme/defaultTheme";
+import React from "react";
 
 const DefaultStyledButton = styled.button`
   all: unset;
@@ -30,9 +31,9 @@ const DefaultStyledButton = styled.button`
 `;
 
 const Button = (props: IButtonProps) => {
-  const theme = useTheme();
+  const t = theme;
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={t}>
       <DefaultStyledButton {...props}>{props.children}</DefaultStyledButton>
     </ThemeProvider>
   );
