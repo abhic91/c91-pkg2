@@ -17,7 +17,7 @@ export default {
       format: "es",
     },
   ],
-  external: ["react", "react-dom", "@emotion", "@mui/material", "@mui/style"],
+  external: ["react", "react-dom", "styled-components"],
   plugins: [
     resolve(),
     external(),
@@ -25,6 +25,6 @@ export default {
     typescript({
       useTsconfigDeclarationDir: true,
     }),
-    terser(),
+    // terser(),
   ],
 };
