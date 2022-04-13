@@ -31,13 +31,8 @@ const DefaultStyledButton = styled.button`
 `;
 
 const Button = (props: IButtonProps) => {
-  const t = theme;
-  console.log(t, "THE T");
-  return (
-    <ThemeProvider theme={t}>
-      <DefaultStyledButton {...props}>{props.children}</DefaultStyledButton>
-    </ThemeProvider>
-  );
+  console.log(useTheme(), "THE T");
+  return <DefaultStyledButton {...props}>{props.children}</DefaultStyledButton>;
 };
 
 Button.defaultProps = {
