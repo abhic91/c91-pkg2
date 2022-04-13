@@ -1,4 +1,6 @@
-const colors = {
+import { IColors } from "./colors.types";
+
+const colors: IColors = {
   gray: {
     0: "#ffffff",
     25: "#fafafa",
@@ -12,8 +14,9 @@ const colors = {
     700: "#393947",
     800: "#202030",
     900: "#070719",
-  } as const,
+  },
   violet: {
+    0: "#ffffff",
     25: "#fcfbff",
     50: "#f9f8ff",
     100: "#f3f0ff",
@@ -25,8 +28,9 @@ const colors = {
     700: "#6E44FD",
     800: "#5836ca",
     900: "#37227f",
-  } as const,
+  },
   red: {
+    0: "#ffffff",
     25: "#FFFBFA",
     50: "#FEF3F2",
     100: "#FEE4E2",
@@ -38,7 +42,7 @@ const colors = {
     700: "#B42318",
     800: "#912018",
     900: "#7A271A",
-  } as const,
-} as const;
+  },
+};
 
 export default colors;

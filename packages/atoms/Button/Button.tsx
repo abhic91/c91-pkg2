@@ -1,9 +1,7 @@
 import { IButtonProps } from "./Button.types";
 import styled, { css, ThemeProvider, useTheme } from "styled-components";
-import { ITheme } from "../theme/theme.types";
-import { theme } from "../theme/defaultTheme";
-import colors from "@abhic91/colors";
 import React from "react";
+import { ITheme } from "../theme/defaultTheme";
 
 const DefaultStyledButton = styled.button`
   all: unset;
@@ -13,18 +11,19 @@ const DefaultStyledButton = styled.button`
   ${({ theme, variant }: { theme: ITheme } & IButtonProps) => {
     switch (variant) {
       case "contained":
-        const colorName = theme.colors.themePalette.primary
-          .colorName as keyof typeof colors;
         return css`
-          background-color: ${theme.colors.themePalette.primary.main};
-          color: ${theme.colors.themePalette.primary.contrastTextMain};
-          box-shadow: 0px 1px 2px ${colors[colorName][700]};
+          background-color: ${theme.button?.primaryContained?.backgroundColor};
+          color: ${theme.button?.primaryContained?.textColor};
+          box-shadow: ${theme.button?.primaryContained?.shadow};
           &:active {
-            background-color: ${colors[colorName][800]};
-            box-shadow: 0px 1px 1px ${colors[colorName][800]};
+            background-color: ${theme.button?.primaryContained
+              ?.backgroundColorActive};
+            box-shadow: 0px 1px 1px
+              ${theme.button?.primaryContained?.shadowHover};
           }
           &:hover {
-            background-color: ${colors[colorName][700]};
+            background-color: ${theme.button?.primaryContained
+              ?.backgroundColorHover};
           }
         `;
     }

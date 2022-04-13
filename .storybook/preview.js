@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../packages/atoms/theme/defaultTheme";
+import { createTheme } from "../packages/atoms/theme/defaultTheme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,6 +14,9 @@ export const parameters = {
 
 export const decorators = [
   (Story) => {
+    const theme = createTheme("violet", "gray", {
+      button: { primaryContained: { backgroundColor: "gray" } },
+    });
     return (
       <ThemeProvider theme={theme}>
         <Story />
