@@ -1,7 +1,8 @@
 import { IButtonProps } from "./Button.types";
 import styled, { css, ThemeProvider, useTheme } from "styled-components";
 import { ITheme } from "../theme/theme.types";
-import { colors, theme } from "../theme/defaultTheme";
+import { theme } from "../theme/defaultTheme";
+import colors from "@abhic91/colors";
 import React from "react";
 
 const DefaultStyledButton = styled.button`

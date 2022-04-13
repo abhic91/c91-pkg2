@@ -1,6 +1,6 @@
 {
-  "name": "@abhic91/atoms",
-  "version": "1.1.14",
+  "name": "@abhic91/colors",
+  "version": "1.0.3",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "types": "lib/types",
@@ -15,12 +15,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "peerDependencies": {
-    "@abhic91/colors": "1.0.0"
-  },
-  "devDependencies": {
-    "@abhic91/colors": "1.0.0"
   },
   "scripts": {
     "build": "rollup -c rollup.config.ts",
