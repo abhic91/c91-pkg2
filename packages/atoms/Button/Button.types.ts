@@ -8,6 +8,7 @@ export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
     | "contained"
     | "primary-text-only"
     | "primary-link"
-    | "semi-transparent";
+    | "semi-transparent"
+    | "neutral-outlined";
   children?: ReactNode;
 };

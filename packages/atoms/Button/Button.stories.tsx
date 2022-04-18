@@ -25,12 +25,7 @@ Contained.args = {
   children: "Contained button",
 };
 Contained.parameters = { pseudo: {} };
-export const Outlined = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Outlined.args = {
-  variant: "outlined",
-  children: "Outlined button",
-};
+
 export const SemiTransparent = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 SemiTransparent.args = {
@@ -49,4 +44,10 @@ export const PrimaryLink = Template.bind({});
 PrimaryLink.args = {
   variant: "primary-link",
   children: "Primary link",
+};
+export const NeutralOutlined = Template.bind({});
+
+NeutralOutlined.args = {
+  variant: "neutral-outlined",
+  children: "Neutral outlined",
 };

@@ -108,6 +108,29 @@ export const createTheme = (
           colors[primaryColorName][25],
         ]),
       },
+      neutralOutlined: {
+        backgroundColor: colorAliases.neutralBgColor,
+        backgroundColorActive: colorAliases.neutralBgColor,
+        backgroundColorFocus: colorAliases.neutralBgColor,
+        backgroundColorHover: colorAliases.neutralBgColorSaturated,
+        backgroundColorDisabled: colorAliases.neutralBgColorDisabled,
+
+        textColor: colorAliases.neutralTextColor,
+        textColorHover: colorAliases.neutralTextColor,
+        textColorActive: colorAliases.neutralTextColor,
+        textColorDisabled: colorAliases.neutralTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.neutralOutlineColor,
+
+        borderColor: colorAliases.neutralBorderColor,
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [
+          colors[neutralColorName][25],
+        ]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
+          colors[neutralColorName][25],
+        ]),
+      },
     },
   };
   return deepmerge(defaultUISettings, theme);
@@ -166,7 +189,7 @@ export const createColorAliases = (
     errorTextColor: colors.red[700],
 
     primaryTextColorDisabled: colors[primaryColorName][300],
-    neutralTextColorDisabled: colors[neutralColorName][200],
+    neutralTextColorDisabled: colors[neutralColorName][300],
     neturalTextColorInvertedDisabled: colors[invertedNeutralColor][50],
     errorTextColorDisabled: colors.red[300],
 

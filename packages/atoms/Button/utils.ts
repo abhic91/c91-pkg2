@@ -16,6 +16,9 @@ export const generateButtonStyles = (
       background-color: ${theme.button?.[btnThemeVariant]?.backgroundColor};
       color: ${theme.button?.[btnThemeVariant]?.textColor};
       box-shadow: ${theme.button?.[btnThemeVariant]?.shadow};
+      border: ${theme.button?.[btnThemeVariant]?.borderColor
+        ? `1px solid ${theme.button?.[btnThemeVariant]?.borderColor}`
+        : "none"};
       font-size: ${buttonFontSize};
       padding: 0.5em 0.875em;
       &:active {

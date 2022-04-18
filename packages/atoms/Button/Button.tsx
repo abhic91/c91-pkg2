@@ -25,6 +25,9 @@ const StyledButton = styled.button`
       case "primary-link": {
         return css(generateButtonStyles("primaryLink"));
       }
+      case "neutral-outlined": {
+        return css(generateButtonStyles("neutralOutlined"));
+      }
     }
   }}
 `;

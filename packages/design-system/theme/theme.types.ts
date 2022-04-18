@@ -45,6 +45,8 @@ export type IButtonAlias = {
 
   outlineColorOnFocus?: string;
 
+  borderColor?: string;
+
   textDecoration?: string;
 
   textDecorationHover?: string;
@@ -99,6 +101,8 @@ export type IThemeButtonVariants = {
   semiTransparent?: IButtonAlias;
   primaryTextOnly?: IButtonAlias;
   primaryLink?: IButtonAlias;
+
+  neutralOutlined: IButtonAlias;
 };
 
 export type ITheme = {
