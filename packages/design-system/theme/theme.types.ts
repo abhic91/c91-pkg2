@@ -104,6 +104,8 @@ export type IThemeButtonVariants = {
 
   neutralOutlined: IButtonAlias;
   neutralLink: IButtonAlias;
+
+  errorContained?: IButtonAlias;
 };
 
 export type ITheme = {

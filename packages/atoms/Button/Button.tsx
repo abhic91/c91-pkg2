@@ -31,6 +31,9 @@ const StyledButton = styled.button`
       case "neutral-link": {
         return css(generateButtonStyles("neutralLink"));
       }
+      case "error-contained": {
+        return css(generateButtonStyles("errorContained"));
+      }
     }
   }}
 `;

@@ -57,3 +57,9 @@ NeutralLink.args = {
   variant: "neutral-link",
   children: "Neutral link",
 };
+export const ErrorContained = Template.bind({});
+
+ErrorContained.args = {
+  variant: "error-contained",
+  children: "Error Contained",
+};

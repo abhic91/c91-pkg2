@@ -33,7 +33,7 @@ export const createTheme = (
         textColor: colorAliases.neutralTextColorInverted,
         textColorHover: colorAliases.neutralTextColorInverted,
         textColorActive: colorAliases.neutralTextColorInverted,
-        textColorDisabled: colorAliases.neutralTextColorInverted,
+        textColorDisabled: colorAliases.neturalTextColorInvertedDisabled,
 
         outlineColorOnFocus: colorAliases.primaryOutlinedColor,
 
@@ -148,6 +148,27 @@ export const createTheme = (
         ]),
         shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
           colors[neutralColorName][0],
+        ]),
+      },
+      errorContained: {
+        backgroundColor: colorAliases.errorBgColor,
+        backgroundColorActive: colorAliases.errorBgColorSaturated,
+        backgroundColorFocus: colorAliases.errorBgColor,
+        backgroundColorHover: colorAliases.errorBgColorSaturated,
+        backgroundColorDisabled: colorAliases.errorBgColorDisabled,
+
+        textColor: colorAliases.neutralTextColorInverted,
+        textColorHover: colorAliases.neutralTextColorInverted,
+        textColorActive: colorAliases.neutralTextColorInverted,
+        textColorDisabled: colorAliases.neturalTextColorInvertedDisabled,
+
+        outlineColorOnFocus: colorAliases.errorOutlinedColor,
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.red[600],
+        ]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadowHover, [
+          colors.red[700],
         ]),
       },
     },
