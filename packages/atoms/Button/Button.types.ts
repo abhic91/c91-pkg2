@@ -4,11 +4,13 @@ import { ITextAlias, ITextSizes } from "../../design-system/theme/theme.types";
 export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
   size?: ITextSizes;
   variant?:
-    | "outlined"
-    | "contained"
+    | "primary-outlined"
+    | "primary-contained"
     | "primary-text-only"
     | "primary-link"
     | "semi-transparent"
-    | "neutral-outlined";
+    | "neutral-outlined"
+    | "neutral-link";
   children?: ReactNode;
+  disabled?: boolean;
 };

@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   }
   ${({ variant }: { theme: ITheme } & IButtonProps) => {
     switch (variant) {
-      case "contained":
+      case "primary-contained":
         return css(generateButtonStyles("primaryContained"));
 
       case "semi-transparent": {
@@ -28,6 +28,9 @@ const StyledButton = styled.button`
       case "neutral-outlined": {
         return css(generateButtonStyles("neutralOutlined"));
       }
+      case "neutral-link": {
+        return css(generateButtonStyles("neutralLink"));
+      }
     }
   }}
 `;
@@ -38,7 +41,7 @@ const Button = (props: IButtonProps) => {
 
 Button.defaultProps = {
   type: "button",
-  variant: "contained",
+  variant: "primary-contained",
   color: "primary",
   size: "md",
 } as IButtonProps;

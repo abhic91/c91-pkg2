@@ -103,6 +103,7 @@ export type IThemeButtonVariants = {
   primaryLink?: IButtonAlias;
 
   neutralOutlined: IButtonAlias;
+  neutralLink: IButtonAlias;
 };
 
 export type ITheme = {

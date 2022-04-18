@@ -124,11 +124,30 @@ export const createTheme = (
 
         borderColor: colorAliases.neutralBorderColor,
 
+        shadow: getShadowAliasesInString(shadowAliases.shadow, []),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, []),
+      },
+      neutralLink: {
+        backgroundColor: colorAliases.transparentColor,
+        backgroundColorActive: colorAliases.transparentColor,
+        backgroundColorFocus: colorAliases.transparentColor,
+        backgroundColorHover: colorAliases.transparentColor,
+        backgroundColorDisabled: colorAliases.transparentColor,
+
+        textColor: colorAliases.neutralTextColor,
+        textColorHover: colorAliases.neutralTextColor,
+        textColorActive: colorAliases.neutralTextColor,
+        textColorDisabled: colorAliases.neutralTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.neutralOutlineColor,
+
+        textDecorationHover: "underline",
+
         shadow: getShadowAliasesInString(shadowAliases.shadow, [
-          colors[neutralColorName][25],
+          colors[neutralColorName][0],
         ]),
         shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
-          colors[neutralColorName][25],
+          colors[neutralColorName][0],
         ]),
       },
     },

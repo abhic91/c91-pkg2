@@ -51,3 +51,9 @@ NeutralOutlined.args = {
   variant: "neutral-outlined",
   children: "Neutral outlined",
 };
+export const NeutralLink = Template.bind({});
+
+NeutralLink.args = {
+  variant: "neutral-link",
+  children: "Neutral link",
+};
