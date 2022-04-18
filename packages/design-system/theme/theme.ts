@@ -44,7 +44,7 @@ export const createTheme = (
           colors[primaryColorName][700],
         ]),
       },
-      primarySemiTransparent: {
+      primaryLight: {
         backgroundColor: colorAliases.primaryBgLight,
         backgroundColorActive: colorAliases.primaryBgLightSaturated,
         backgroundColorFocus: colorAliases.primaryBgLight,
@@ -171,7 +171,7 @@ export const createTheme = (
           colors.red[700],
         ]),
       },
-      errorSemiTransparent: {
+      errorLight: {
         backgroundColor: colorAliases.errorBgLight,
         backgroundColorActive: colorAliases.errorBgLightSaturated,
         backgroundColorFocus: colorAliases.errorBgLight,

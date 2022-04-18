@@ -8,11 +8,11 @@ export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
     | "primary-contained"
     | "primary-text-only"
     | "primary-link"
-    | "primary-semi-transparent"
+    | "primary-light"
     | "neutral-outlined"
     | "neutral-link"
     | "error-contained"
-    | "error-semi-transparent"
+    | "error-light"
     | "error-outlined"
     | "error-text-only"
     | "error-link";

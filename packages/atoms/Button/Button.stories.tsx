@@ -26,9 +26,9 @@ Contained.args = {
 Contained.parameters = { pseudo: {} };
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-export const SemiTransparent = Template.bind({});
-SemiTransparent.args = {
-  variant: "primary-semi-transparent",
+export const PrimaryLight = Template.bind({});
+PrimaryLight.args = {
+  variant: "primary-light",
   children: "Lighter button",
 };
 
@@ -62,10 +62,10 @@ ErrorContained.args = {
   children: "Error Contained",
 };
 
-export const ErrorSemiTransparent = Template.bind({});
-ErrorSemiTransparent.args = {
-  variant: "error-semi-transparent",
-  children: "Error Semi Transparent",
+export const ErrorLight = Template.bind({});
+ErrorLight.args = {
+  variant: "error-light",
+  children: "Error Light",
 };
 
 export const ErrorOutlined = Template.bind({});

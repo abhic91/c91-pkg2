@@ -16,8 +16,8 @@ const StyledButton = styled.button`
       case "primary-contained":
         return css(generateButtonStyles("primaryContained"));
 
-      case "primary-semi-transparent": {
-        return css(generateButtonStyles("primarySemiTransparent"));
+      case "primary-light": {
+        return css(generateButtonStyles("primaryLight"));
       }
       case "primary-text-only": {
         return css(generateButtonStyles("primaryTextOnly"));
@@ -34,8 +34,8 @@ const StyledButton = styled.button`
       case "error-contained": {
         return css(generateButtonStyles("errorContained"));
       }
-      case "error-semi-transparent": {
-        return css(generateButtonStyles("errorSemiTransparent"));
+      case "error-light": {
+        return css(generateButtonStyles("errorLight"));
       }
       case "error-outlined": {
         return css(generateButtonStyles("errorOutlined"));

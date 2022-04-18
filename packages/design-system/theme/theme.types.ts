@@ -100,7 +100,7 @@ export type IColorAliases = {
 
 export type IThemeButtonVariants = {
   primaryContained?: IButtonAlias;
-  primarySemiTransparent?: IButtonAlias;
+  primaryLight?: IButtonAlias;
   primaryTextOnly?: IButtonAlias;
   primaryLink?: IButtonAlias;
 
@@ -108,7 +108,7 @@ export type IThemeButtonVariants = {
   neutralLink: IButtonAlias;
 
   errorContained?: IButtonAlias;
-  errorSemiTransparent?: IButtonAlias;
+  errorLight?: IButtonAlias;
   errorOutlined?: IButtonAlias;
   errorTextOnly?: IButtonAlias;
   errorLink?: IButtonAlias;
