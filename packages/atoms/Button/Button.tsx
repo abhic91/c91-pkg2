@@ -1,38 +1,36 @@
 import { IButtonProps } from "./Button.types";
-import styled, { css, ThemeProvider, useTheme } from "styled-components";
+import styled, { css } from "styled-components";
 import React from "react";
-import { ITheme } from "../theme/defaultTheme";
+import { ITheme } from "../../design-system/theme/theme.types";
+import { generateButtonStyles } from "./utils";
 
-const DefaultStyledButton = styled.button`
+const StyledButton = styled.button`
   all: unset;
   cursor: pointer;
   border-radius: 8px;
-  padding: 8px 14px;
-  ${({ theme, variant }: { theme: ITheme } & IButtonProps) => {
+  &:disabled {
+    cursor: not-allowed;
+  }
+  ${({ variant }: { theme: ITheme } & IButtonProps) => {
     switch (variant) {
       case "contained":
-        return css`
-          background-color: ${theme.button?.primaryContained?.backgroundColor};
-          color: ${theme.button?.primaryContained?.textColor};
-          box-shadow: ${theme.button?.primaryContained?.shadow};
-          &:active {
-            background-color: ${theme.button?.primaryContained
-              ?.backgroundColorActive};
-            box-shadow: 0px 1px 1px
-              ${theme.button?.primaryContained?.shadowHover};
-          }
-          &:hover {
-            background-color: ${theme.button?.primaryContained
-              ?.backgroundColorHover};
-          }
-        `;
+        return css(generateButtonStyles("primaryContained"));
+
+      case "semi-transparent": {
+        return css(generateButtonStyles("semiTransparent"));
+      }
+      case "primary-text-only": {
+        return css(generateButtonStyles("primaryTextOnly"));
+      }
+      case "primary-link": {
+        return css(generateButtonStyles("primaryLink"));
+      }
     }
   }}
 `;
 
 const Button = (props: IButtonProps) => {
-  console.log(useTheme(), "THE T");
-  return <DefaultStyledButton {...props}>{props.children}</DefaultStyledButton>;
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 
 Button.defaultProps = {

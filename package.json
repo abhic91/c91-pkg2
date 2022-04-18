@@ -8,12 +8,24 @@
   "workspaces": [
     "packages/*"
   ],
+  "watch": {
+    "build-design-system": {
+      "patterns": [
+        "packages/design-system/colors/",
+        "packages/design-system/theme/"
+      ],
+      "delay": 1000,
+      "extensions": "js,ts,tsx"
+    }
+  },
   "scripts": {
     "build": "lerna run build",
     "publish-packages": "lerna run publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "build-design-system": "lerna run build --scope @abhic91/design-system",
+    "watch": "npm-watch"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -37,6 +49,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "jest": "^27.5.1",
     "lerna": "^4.0.0",
+    "npm-watch": "^0.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^18.0.0",
@@ -44,15 +57,18 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "0.31.2",
+    "storybook-addon-pseudo-states": "^1.9.0",
+    "styled-components": "^5.3.5",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
-    "typescript": "4.6.3",
-    "styled-components": "^5.3.5"
+    "typescript": "4.6.3"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  }
 }

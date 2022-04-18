@@ -7,9 +7,20 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-addon-pseudo-states",
   ],
   framework: "@storybook/react",
   webpackFinal(config) {
     return config;
+  },
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
   },
 };

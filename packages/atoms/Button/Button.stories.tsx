@@ -13,6 +13,8 @@ export default {
   // },
 } as ComponentMeta<typeof Button>;
 
+//TODO: SHOW ALL PROPS ALONG WITH DEFAULT BTN PROPS IN STORY
+
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
@@ -22,9 +24,29 @@ Contained.args = {
   variant: "contained",
   children: "Contained button",
 };
+Contained.parameters = { pseudo: {} };
 export const Outlined = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Outlined.args = {
   variant: "outlined",
   children: "Outlined button",
+};
+export const SemiTransparent = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+SemiTransparent.args = {
+  variant: "semi-transparent",
+  children: "Lighter button",
+};
+
+export const TextOnly = Template.bind({});
+
+TextOnly.args = {
+  variant: "primary-text-only",
+  children: "Text only button",
+};
+export const PrimaryLink = Template.bind({});
+
+PrimaryLink.args = {
+  variant: "primary-link",
+  children: "Primary link",
 };
