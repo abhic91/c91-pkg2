@@ -43,7 +43,7 @@ export const generateButtonStyles = (
         box-shadow: ${theme.button?.[btnThemeVariant]?.shadow};
         outline: 3px solid
           ${theme.button?.[btnThemeVariant]?.outlineColorOnFocus};
-        color: ${theme.button?.[btnThemeVariant]?.textColor};
+        color: ${theme.button?.[btnThemeVariant]?.textColorActive};
         text-decoration: ${theme.button?.[btnThemeVariant]
           ?.textDecorationHover};
       }
