@@ -8,6 +8,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "storybook-addon-pseudo-states",
+    "@storybook/addon-a11y",
   ],
   framework: "@storybook/react",
   webpackFinal(config) {
