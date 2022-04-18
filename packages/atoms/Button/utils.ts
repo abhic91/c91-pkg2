@@ -26,6 +26,8 @@ export const generateButtonStyles = (
           ?.backgroundColorActive};
         box-shadow: ${theme.button?.[btnThemeVariant]?.shadowHover};
         color: ${theme.button?.[btnThemeVariant]?.textColorActive};
+        text-decoration: ${theme.button?.[btnThemeVariant]
+          ?.textDecorationHover};
       }
       &:not([disabled]):hover {
         background-color: ${theme.button?.[btnThemeVariant]
@@ -42,6 +44,8 @@ export const generateButtonStyles = (
         outline: 3px solid
           ${theme.button?.[btnThemeVariant]?.outlineColorOnFocus};
         color: ${theme.button?.[btnThemeVariant]?.textColor};
+        text-decoration: ${theme.button?.[btnThemeVariant]
+          ?.textDecorationHover};
       }
       &:disabled {
         background-color: ${theme.button?.[btnThemeVariant]

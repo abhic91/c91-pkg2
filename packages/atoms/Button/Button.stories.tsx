@@ -19,47 +19,69 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Contained = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Contained.args = {
-  variant: "contained",
+  variant: "primary-contained",
   children: "Contained button",
 };
 Contained.parameters = { pseudo: {} };
 
-export const SemiTransparent = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const SemiTransparent = Template.bind({});
 SemiTransparent.args = {
-  variant: "semi-transparent",
+  variant: "primary-semi-transparent",
   children: "Lighter button",
 };
 
 export const TextOnly = Template.bind({});
-
 TextOnly.args = {
   variant: "primary-text-only",
   children: "Text only button",
 };
-export const PrimaryLink = Template.bind({});
 
+export const PrimaryLink = Template.bind({});
 PrimaryLink.args = {
   variant: "primary-link",
   children: "Primary link",
 };
-export const NeutralOutlined = Template.bind({});
 
+export const NeutralOutlined = Template.bind({});
 NeutralOutlined.args = {
   variant: "neutral-outlined",
   children: "Neutral outlined",
 };
-export const NeutralLink = Template.bind({});
 
+export const NeutralLink = Template.bind({});
 NeutralLink.args = {
   variant: "neutral-link",
   children: "Neutral link",
 };
-export const ErrorContained = Template.bind({});
 
+export const ErrorContained = Template.bind({});
 ErrorContained.args = {
   variant: "error-contained",
   children: "Error Contained",
+};
+
+export const ErrorSemiTransparent = Template.bind({});
+ErrorSemiTransparent.args = {
+  variant: "error-semi-transparent",
+  children: "Error Semi Transparent",
+};
+
+export const ErrorOutlined = Template.bind({});
+ErrorOutlined.args = {
+  variant: "error-outlined",
+  children: "Error Outlined",
+};
+
+export const ErrorTextOnly = Template.bind({});
+ErrorTextOnly.args = {
+  variant: "error-text-only",
+  children: "Error Text only",
+};
+
+export const ErrorLink = Template.bind({});
+ErrorLink.args = {
+  variant: "error-link",
+  children: "Error Link",
 };

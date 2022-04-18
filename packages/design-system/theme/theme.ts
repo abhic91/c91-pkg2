@@ -44,7 +44,7 @@ export const createTheme = (
           colors[primaryColorName][700],
         ]),
       },
-      semiTransparent: {
+      primarySemiTransparent: {
         backgroundColor: colorAliases.primaryBgLight,
         backgroundColorActive: colorAliases.primaryBgLightSaturated,
         backgroundColorFocus: colorAliases.primaryBgLight,
@@ -97,9 +97,9 @@ export const createTheme = (
         textColorActive: colorAliases.primaryTextColorSaturated,
         textColorDisabled: colorAliases.primaryTextColorDisabled,
 
-        outlineColorOnFocus: colorAliases.primaryLightOutlinedColor,
+        outlineColorOnFocus: colorAliases.transparentColor,
 
-        textDecorationHover: "underline",
+        textDecorationHover: "none",
 
         shadow: getShadowAliasesInString(shadowAliases.shadow, [
           colors[primaryColorName][25],
@@ -135,13 +135,13 @@ export const createTheme = (
         backgroundColorDisabled: colorAliases.transparentColor,
 
         textColor: colorAliases.neutralTextColor,
-        textColorHover: colorAliases.neutralTextColor,
-        textColorActive: colorAliases.neutralTextColor,
+        textColorHover: colorAliases.neutralTextColorSatured,
+        textColorActive: colorAliases.neutralTextColorSatured,
         textColorDisabled: colorAliases.neutralTextColorDisabled,
 
-        outlineColorOnFocus: colorAliases.neutralOutlineColor,
+        outlineColorOnFocus: colorAliases.transparentColor,
 
-        textDecorationHover: "underline",
+        textDecorationHover: "none",
 
         shadow: getShadowAliasesInString(shadowAliases.shadow, [
           colors[neutralColorName][0],
@@ -171,6 +171,85 @@ export const createTheme = (
           colors.red[700],
         ]),
       },
+      errorSemiTransparent: {
+        backgroundColor: colorAliases.errorBgLight,
+        backgroundColorActive: colorAliases.errorBgLightSaturated,
+        backgroundColorFocus: colorAliases.errorBgLight,
+        backgroundColorHover: colorAliases.errorBgLightSaturated,
+        backgroundColorDisabled: colorAliases.errorBgLightDisabled,
+
+        textColor: colorAliases.errorTextColor,
+        textColorHover: colorAliases.errorTextColor,
+        textColorActive: colorAliases.errorTextColor,
+        textColorDisabled: colorAliases.errorTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.errorLightOutlinedColor,
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.red[100],
+        ]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.red[100],
+        ]),
+      },
+      errorOutlined: {
+        backgroundColor: colorAliases.transparentColor,
+        backgroundColorActive: colorAliases.transparentColor,
+        backgroundColorFocus: colorAliases.errorBgLight,
+        backgroundColorHover: colorAliases.errorBgLightSaturated,
+        backgroundColorDisabled: colorAliases.errorBgLightDisabled,
+
+        textColor: colorAliases.errorTextColor,
+        textColorHover: colorAliases.errorTextColor,
+        textColorActive: colorAliases.errorTextColor,
+        textColorDisabled: colorAliases.errorTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.errorOutlinedColor,
+
+        borderColor: colorAliases.errorBorderColor,
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, []),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, []),
+      },
+      errorTextOnly: {
+        backgroundColor: colorAliases.transparentColor,
+        backgroundColorActive: colorAliases.transparentColor,
+        backgroundColorFocus: colorAliases.transparentColor,
+        backgroundColorHover: colorAliases.errorBgLight,
+        backgroundColorDisabled: colorAliases.errorBgLightDisabled,
+
+        textColor: colorAliases.errorTextColor,
+        textColorHover: colorAliases.errorTextColor,
+        textColorActive: colorAliases.errorTextColor,
+        textColorDisabled: colorAliases.errorTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.errorLightOutlinedColor,
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [colors.red[0]]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.red[0],
+        ]),
+      },
+      errorLink: {
+        backgroundColor: colorAliases.transparentColor,
+        backgroundColorActive: colorAliases.transparentColor,
+        backgroundColorFocus: colorAliases.transparentColor,
+        backgroundColorHover: colorAliases.transparentColor,
+        backgroundColorDisabled: colorAliases.transparentColor,
+
+        textColor: colorAliases.errorTextColor,
+        textColorHover: colorAliases.errorTextColorSaturated,
+        textColorActive: colorAliases.errorTextColorSaturated,
+        textColorDisabled: colorAliases.errorTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.transparentColor,
+
+        textDecorationHover: "none",
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [colors.red[0]]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.red[0],
+        ]),
+      },
     },
   };
   return deepmerge(defaultUISettings, theme);
@@ -192,14 +271,14 @@ export const createColorAliases = (
 
     primaryBorderColor: colors[primaryColorName][600],
     neutralBorderColor: colors[neutralColorName][200],
-    errorBorderColor: colors.red[600],
+    errorBorderColor: colors.red[300],
 
     primaryLightBorderColor: colors[primaryColorName][25],
     errorLightBorderColor: colors.red[25],
 
     primaryBorderColorSaturated: colors[primaryColorName][700],
     neutralBorderColorSaturated: colors[neutralColorName][100],
-    errorBorderColorSaturated: colors.red[700],
+    errorBorderColorSaturated: colors.red[400],
 
     primaryBgColor: colors[primaryColorName][600],
     neutralBgColor: colors[neutralColorName][0],
@@ -224,9 +303,11 @@ export const createColorAliases = (
 
     primaryTextColor: colors[primaryColorName][700],
     primaryTextColorSaturated: colors[primaryColorName][800],
-    neutralTextColor: colors[neutralColorName][800],
+    neutralTextColor: colors[neutralColorName][600],
+    neutralTextColorSatured: colors[neutralColorName][800],
     neutralTextColorInverted: colors[invertedNeutralColor][0],
     errorTextColor: colors.red[700],
+    errorTextColorSaturated: colors.red[800],
 
     primaryTextColorDisabled: colors[primaryColorName][300],
     neutralTextColorDisabled: colors[neutralColorName][300],

@@ -86,8 +86,10 @@ export type IColorAliases = {
   errorBgLightDisabled: string;
   primaryTextColor: string;
   neutralTextColor: string;
+  neutralTextColorSatured: string;
   neutralTextColorInverted: string;
   errorTextColor: string;
+  errorTextColorSaturated: string;
   primaryTextColorDisabled: string;
   primaryTextColorSaturated: string;
   neutralTextColorDisabled: string;
@@ -98,7 +100,7 @@ export type IColorAliases = {
 
 export type IThemeButtonVariants = {
   primaryContained?: IButtonAlias;
-  semiTransparent?: IButtonAlias;
+  primarySemiTransparent?: IButtonAlias;
   primaryTextOnly?: IButtonAlias;
   primaryLink?: IButtonAlias;
 
@@ -106,6 +108,10 @@ export type IThemeButtonVariants = {
   neutralLink: IButtonAlias;
 
   errorContained?: IButtonAlias;
+  errorSemiTransparent?: IButtonAlias;
+  errorOutlined?: IButtonAlias;
+  errorTextOnly?: IButtonAlias;
+  errorLink?: IButtonAlias;
 };
 
 export type ITheme = {
