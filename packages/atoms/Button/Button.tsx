@@ -1,5 +1,5 @@
 import { IButtonProps } from "./Button.types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { generateButtonStyles } from "./utils";
 
 import React from "react";
@@ -8,44 +8,43 @@ import type { ITheme } from "@abhic91/design-system/";
 const StyledButton = styled.button`
   all: unset;
   cursor: pointer;
-  border-radius: 8px;
   &:disabled {
     cursor: not-allowed;
   }
   ${({ variant }: { theme: ITheme } & IButtonProps) => {
     switch (variant) {
       case "primary-contained":
-        return css(generateButtonStyles("primaryContained"));
+        return generateButtonStyles("primaryContained");
 
       case "primary-light": {
-        return css(generateButtonStyles("primaryLight"));
+        return generateButtonStyles("primaryLight");
       }
       case "primary-text-only": {
-        return css(generateButtonStyles("primaryTextOnly"));
+        return generateButtonStyles("primaryTextOnly");
       }
       case "primary-link": {
-        return css(generateButtonStyles("primaryLink"));
+        return generateButtonStyles("primaryLink");
       }
       case "neutral-outlined": {
-        return css(generateButtonStyles("neutralOutlined"));
+        return generateButtonStyles("neutralOutlined");
       }
       case "neutral-link": {
-        return css(generateButtonStyles("neutralLink"));
+        return generateButtonStyles("neutralLink");
       }
       case "error-contained": {
-        return css(generateButtonStyles("errorContained"));
+        return generateButtonStyles("errorContained");
       }
       case "error-light": {
-        return css(generateButtonStyles("errorLight"));
+        return generateButtonStyles("errorLight");
       }
       case "error-outlined": {
-        return css(generateButtonStyles("errorOutlined"));
+        return generateButtonStyles("errorOutlined");
       }
       case "error-text-only": {
-        return css(generateButtonStyles("errorTextOnly"));
+        return generateButtonStyles("errorTextOnly");
       }
       case "error-link": {
-        return css(generateButtonStyles("errorLink"));
+        return generateButtonStyles("errorLink");
       }
     }
   }}
@@ -59,7 +58,7 @@ Button.defaultProps = {
   type: "button",
   variant: "primary-contained",
   color: "primary",
-  size: "lg",
+  size: "sm",
 } as IButtonProps;
 
 export default Button;

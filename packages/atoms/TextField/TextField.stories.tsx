@@ -14,7 +14,14 @@ export default {
 } as ComponentMeta<typeof TextField>;
 
 const Template: ComponentStory<typeof TextField> = (args) => {
-  return <TextField {...args} inputTextProps={{ id: "id" }} />;
+  return (
+    <div style={{ width: "400px" }}>
+      <TextField
+        {...args}
+        inputTextProps={{ id: "id", ...args.inputTextProps }}
+      />
+    </div>
+  );
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -33,7 +40,7 @@ const Template: ComponentStory<typeof TextField> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   id: "default-text-field",
-  label: "Name:",
+  label: "Name",
   inputTextProps: {
     placeholder: "Enter name",
     disabled: false,

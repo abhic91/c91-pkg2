@@ -14,3 +14,5 @@ export const fontFamilies = [
   "Helvetica Neue",
   "sans-serif",
 ].join(",");
+
+export const defaultBorderRadius = "8px";

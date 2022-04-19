@@ -45,6 +45,8 @@ export type ITextFieldSettings = {
   errorBorderColor?: string;
   disabledBorderColor?: string;
 
+  borderColorFocus?: string;
+
   outlineColorOnFocus?: string;
   errorOutlineColorOnFocus?: string;
 
@@ -62,6 +64,12 @@ export type ITextFieldSettings = {
 
   labelFontWeight?: IFontWeightRanges;
   hintFontWeight?: IFontWeightRanges;
+
+  padding?: string;
+
+  borderRadius?: string;
+
+  shadow?: string;
 };
 
 export type ITextSizes = keyof ITextAlias["size"];
@@ -72,6 +80,8 @@ export type IButtonAlias = {
   backgroundColorFocus?: string;
   backgroundColorHover?: string;
   backgroundColorDisabled?: string;
+
+  borderRadius?: string;
 
   textColor?: string;
   textColorHover?: string;

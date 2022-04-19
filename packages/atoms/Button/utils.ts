@@ -18,6 +18,7 @@ export const generateButtonStyles = (
       border: ${theme.button?.[btnThemeVariant]?.borderColor
         ? `1px solid ${theme.button?.[btnThemeVariant]?.borderColor}`
         : "none"};
+      border-radius: ${theme.button?.[btnThemeVariant]?.borderRadius};
       font-size: ${buttonFontSize};
       padding: 0.625em 1em;
       &:active {

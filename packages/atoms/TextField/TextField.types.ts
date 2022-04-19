@@ -1,7 +1,7 @@
-import { HTMLAttributes, HTMLProps } from "react";
+import { HTMLAttributes, HTMLProps, InputHTMLAttributes } from "react";
 
 export type ITextFieldProps = {
-  inputTextProps: { id: string } & HTMLProps<HTMLInputElement>;
+  inputTextProps: { error?: boolean } & InputHTMLAttributes<HTMLInputElement>;
   labelProps?: HTMLAttributes<HTMLLabelElement>;
 
   label?: string;

@@ -3,7 +3,7 @@ import { IColorAliases, IShadowAlias, ITextAlias, ITheme } from "./theme.types";
 import deepmerge from "deepmerge";
 import { getShadowAliasesInString } from "./utils";
 import { IColorNames } from "../colors/colors.types";
-import { fontFamilies } from "./constants";
+import { defaultBorderRadius, fontFamilies } from "./constants";
 
 export const createTheme = (
   primaryColorName: IColorNames = "violet",
@@ -30,6 +30,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.primaryBgColorSaturated,
         backgroundColorDisabled: colorAliases.primaryBgColorDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.neutralTextColorInverted,
         textColorHover: colorAliases.neutralTextColorInverted,
         textColorActive: colorAliases.neutralTextColorInverted,
@@ -51,6 +53,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.primaryBgLightSaturated,
         backgroundColorDisabled: colorAliases.primaryBgLightDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.primaryTextColor,
         textColorHover: colorAliases.primaryTextColor,
         textColorActive: colorAliases.primaryTextColor,
@@ -70,6 +74,8 @@ export const createTheme = (
         backgroundColorFocus: colorAliases.transparentColor,
         backgroundColorHover: colorAliases.primaryBgLight,
         backgroundColorDisabled: colorAliases.transparentColor,
+
+        borderRadius: defaultBorderRadius,
 
         textColor: colorAliases.primaryTextColor,
         textColorHover: colorAliases.primaryTextColor,
@@ -91,6 +97,8 @@ export const createTheme = (
         backgroundColorFocus: colorAliases.transparentColor,
         backgroundColorHover: colorAliases.transparentColor,
         backgroundColorDisabled: colorAliases.transparentColor,
+
+        borderRadius: defaultBorderRadius,
 
         textColor: colorAliases.primaryTextColor,
         textColorHover: colorAliases.primaryTextColorSaturated,
@@ -115,6 +123,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.neutralBgColorSaturated,
         backgroundColorDisabled: colorAliases.neutralBgColorDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.neutralTextColor,
         textColorHover: colorAliases.neutralTextColor,
         textColorActive: colorAliases.neutralTextColor,
@@ -133,6 +143,8 @@ export const createTheme = (
         backgroundColorFocus: colorAliases.transparentColor,
         backgroundColorHover: colorAliases.transparentColor,
         backgroundColorDisabled: colorAliases.transparentColor,
+
+        borderRadius: defaultBorderRadius,
 
         textColor: colorAliases.neutralTextColor,
         textColorHover: colorAliases.neutralTextColorSatured,
@@ -157,6 +169,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.errorBgColorSaturated,
         backgroundColorDisabled: colorAliases.errorBgColorDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.neutralTextColorInverted,
         textColorHover: colorAliases.neutralTextColorInverted,
         textColorActive: colorAliases.neutralTextColorInverted,
@@ -178,6 +192,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.errorBgLightSaturated,
         backgroundColorDisabled: colorAliases.errorBgLightDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.errorTextColor,
         textColorHover: colorAliases.errorTextColor,
         textColorActive: colorAliases.errorTextColor,
@@ -198,6 +214,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.errorBgLightSaturated,
         backgroundColorDisabled: colorAliases.errorBgLightDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.errorTextColor,
         textColorHover: colorAliases.errorTextColor,
         textColorActive: colorAliases.errorTextColor,
@@ -217,6 +235,8 @@ export const createTheme = (
         backgroundColorHover: colorAliases.errorBgLight,
         backgroundColorDisabled: colorAliases.errorBgLightDisabled,
 
+        borderRadius: defaultBorderRadius,
+
         textColor: colorAliases.errorTextColor,
         textColorHover: colorAliases.errorTextColor,
         textColorActive: colorAliases.errorTextColor,
@@ -235,6 +255,8 @@ export const createTheme = (
         backgroundColorFocus: colorAliases.transparentColor,
         backgroundColorHover: colorAliases.transparentColor,
         backgroundColorDisabled: colorAliases.transparentColor,
+
+        borderRadius: defaultBorderRadius,
 
         textColor: colorAliases.errorTextColor,
         textColorHover: colorAliases.errorTextColorSaturated,
@@ -260,10 +282,12 @@ export const createTheme = (
 
       disabledTextColor: colorAliases.neutralTextColorDisabled,
 
+      borderColorFocus: colorAliases.primaryBorderColor,
+
       errorTextColor: colorAliases.errorTextColor,
 
       hintFontSize: textAliases.size.sm,
-      labelFontSize: textAliases.size.sm, //TODO: FONT WEIGHT
+      labelFontSize: textAliases.size.sm,
 
       hintTextColor: colorAliases.neutralTextColor,
       labelTextColor: colorAliases.neutralTextColor,
@@ -275,6 +299,14 @@ export const createTheme = (
       errorOutlineColorOnFocus: colorAliases.errorLightOutlinedColor,
 
       placeholderColor: colors[neutralColorName][300],
+
+      padding: "10px 14px",
+
+      borderRadius: defaultBorderRadius, //TODO: VERIFY IF OK
+
+      shadow: getShadowAliasesInString(shadowAliases.shadow, [
+        colors[primaryColorName][100],
+      ]),
     },
   };
   return deepmerge(defaultUISettings, theme);
