@@ -29,6 +29,29 @@ export type ITextAlias = {
   font: string;
 };
 
+export type ITextFieldSettings = {
+  borderColor?: string;
+  errorBorderColor?: string;
+  disabledBorderColor?: string;
+
+  outlineColorOnFocus?: string;
+  errorOutlineColorOnFocus?: string;
+
+  placeholderColor?: string;
+
+  disabledBgColor?: string;
+
+  disabledTextColor?: string;
+  hintTextColor?: string;
+  errorTextColor?: string;
+
+  labelFontSize?: string;
+  hintFontSize?: string;
+
+  labelFontWeight?: string;
+  hintFontWeight?: string;
+};
+
 export type ITextSizes = keyof ITextAlias["size"];
 
 export type IButtonAlias = {
@@ -85,10 +108,13 @@ export type IColorAliases = {
   primaryBgLightDisabled: string;
   errorBgLightDisabled: string;
   primaryTextColor: string;
+  primaryTextColorLight: string;
   neutralTextColor: string;
+  neutralTextColorLight: string;
   neutralTextColorSatured: string;
   neutralTextColorInverted: string;
   errorTextColor: string;
+  errorTextColorLight: string;
   errorTextColorSaturated: string;
   primaryTextColorDisabled: string;
   primaryTextColorSaturated: string;
@@ -116,7 +142,8 @@ export type IThemeButtonVariants = {
 
 export type ITheme = {
   colorAliases?: IColorAliases;
-  button?: IThemeButtonVariants;
   shadowAliases?: IShadowAlias;
   textAliases?: ITextAlias;
+  button?: IThemeButtonVariants;
+  textField?: ITextFieldSettings;
 };

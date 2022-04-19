@@ -20,7 +20,7 @@ export const generateButtonStyles = (
         ? `1px solid ${theme.button?.[btnThemeVariant]?.borderColor}`
         : "none"};
       font-size: ${buttonFontSize};
-      padding: 0.5em 0.875em;
+      padding: 0.625em 1em;
       &:active {
         background-color: ${theme.button?.[btnThemeVariant]
           ?.backgroundColorActive};

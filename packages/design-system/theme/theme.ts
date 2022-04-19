@@ -251,6 +251,23 @@ export const createTheme = (
         ]),
       },
     },
+    textField: {
+      borderColor: colorAliases.neutralBorderColor,
+      disabledBorderColor: colorAliases.neutralBorderColor,
+      errorBorderColor: colorAliases.errorBorderColor,
+
+      disabledBgColor: colorAliases.neutralBgColorDisabled,
+
+      disabledTextColor: colorAliases.neutralTextColorDisabled,
+
+      errorOutlineColorOnFocus: colorAliases.errorLightOutlinedColor,
+
+      errorTextColor: colorAliases.errorTextColor,
+
+      hintFontSize: textAliases.size.sm,
+      hintTextColor: colorAliases.neutralTextColor,
+      labelFontSize: textAliases.size.sm, //TODO: FONT WEIGHT
+    },
   };
   return deepmerge(defaultUISettings, theme);
 };
@@ -302,11 +319,14 @@ export const createColorAliases = (
     errorBgLightDisabled: colors.red[25],
 
     primaryTextColor: colors[primaryColorName][700],
+    primaryTextColorLight: colors[primaryColorName][500],
     primaryTextColorSaturated: colors[primaryColorName][800],
-    neutralTextColor: colors[neutralColorName][600],
+    neutralTextColor: colors[neutralColorName][700],
+    neutralTextColorLight: colors[neutralColorName][500],
     neutralTextColorSatured: colors[neutralColorName][800],
     neutralTextColorInverted: colors[invertedNeutralColor][0],
     errorTextColor: colors.red[700],
+    errorTextColorLight: colors.red[500],
     errorTextColorSaturated: colors.red[800],
 
     primaryTextColorDisabled: colors[primaryColorName][300],

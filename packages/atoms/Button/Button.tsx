@@ -58,7 +58,7 @@ Button.defaultProps = {
   type: "button",
   variant: "primary-contained",
   color: "primary",
-  size: "md",
+  size: "sm",
 } as IButtonProps;
 
 export default Button;
