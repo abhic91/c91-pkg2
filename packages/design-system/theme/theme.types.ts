@@ -29,6 +29,17 @@ export type ITextAlias = {
   font: string;
 };
 
+export type IFontWeightRanges =
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900;
+
 export type ITextFieldSettings = {
   borderColor?: string;
   errorBorderColor?: string;
@@ -43,13 +54,14 @@ export type ITextFieldSettings = {
 
   disabledTextColor?: string;
   hintTextColor?: string;
+  labelTextColor?: string;
   errorTextColor?: string;
 
   labelFontSize?: string;
   hintFontSize?: string;
 
-  labelFontWeight?: string;
-  hintFontWeight?: string;
+  labelFontWeight?: IFontWeightRanges;
+  hintFontWeight?: IFontWeightRanges;
 };
 
 export type ITextSizes = keyof ITextAlias["size"];

@@ -260,13 +260,21 @@ export const createTheme = (
 
       disabledTextColor: colorAliases.neutralTextColorDisabled,
 
-      errorOutlineColorOnFocus: colorAliases.errorLightOutlinedColor,
-
       errorTextColor: colorAliases.errorTextColor,
 
       hintFontSize: textAliases.size.sm,
-      hintTextColor: colorAliases.neutralTextColor,
       labelFontSize: textAliases.size.sm, //TODO: FONT WEIGHT
+
+      hintTextColor: colorAliases.neutralTextColor,
+      labelTextColor: colorAliases.neutralTextColor,
+
+      labelFontWeight: 400,
+      hintFontWeight: 400,
+
+      outlineColorOnFocus: colorAliases.primaryLightOutlinedColor,
+      errorOutlineColorOnFocus: colorAliases.errorLightOutlinedColor,
+
+      placeholderColor: colors[neutralColorName][300],
     },
   };
   return deepmerge(defaultUISettings, theme);
