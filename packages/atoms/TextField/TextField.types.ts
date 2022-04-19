@@ -1,6 +1,6 @@
 import { HTMLAttributes, HTMLProps } from "react";
 
-export type TextFieldProps = {
+export type ITextFieldProps = {
   inputTextProps: { id: string } & HTMLProps<HTMLInputElement>;
   labelProps?: HTMLAttributes<HTMLLabelElement>;
 

@@ -1,9 +1,9 @@
 {
   "name": "@abhic91/design-system",
-  "version": "1.0.1",
+  "version": "1.0.11",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
-  "types": "lib/types",
+  "types": "lib/types/index.d.ts",
   "author": "Abhilash",
   "license": "MIT",
   "files": [
@@ -12,6 +12,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/abhic91/c91-pkg2.git"
+  },
+  "devDependencies": {
+    "react": "17.0.2"
+  },
+  "peerDependencies": {
+    "react": "17.0.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

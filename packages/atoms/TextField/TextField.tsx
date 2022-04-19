@@ -1,7 +1,7 @@
-import { TextFieldProps } from "./TextField.types";
+import { ITextFieldProps } from "./TextField.types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { ITheme } from "../../design-system/theme/theme.types";
+import type { ITheme } from "@abhic91/design-system";
 
 const StyledLabel = styled.label`
   display: block;
@@ -17,7 +17,7 @@ const TextField = ({
   label,
   inputTextProps: { id, value, onChange, ...inputTextProps },
   ...others
-}: TextFieldProps) => {
+}: ITextFieldProps) => {
   console.log(onChange, value);
   return (
     <div>

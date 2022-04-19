@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { ITextAlias, ITextSizes } from "../../design-system/theme/theme.types";
+import type { ITextSizes } from "@abhic91/design-system";
 
 export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
   size?: ITextSizes;

@@ -1,9 +1,9 @@
 {
   "name": "@abhic91/atoms",
-  "version": "1.2.1",
+  "version": "1.2.12",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
-  "types": "lib/types",
+  "types": "lib/types/index.d.ts",
   "author": "Abhilash",
   "license": "MIT",
   "files": [
@@ -17,10 +17,12 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "@abhic91/colors": "1.0.0"
+    "@abhic91/design-system": "1.0.11",
+    "react": "17.0.2"
   },
   "devDependencies": {
-    "@abhic91/colors": "1.0.0"
+    "@abhic91/design-system": "1.0.1",
+    "react": "17.0.2"
   },
   "scripts": {
     "build": "rollup -c rollup.config.ts",

@@ -2,7 +2,7 @@ import { colors } from "@abhic91/design-system/";
 import { IColorAliases, IShadowAlias, ITextAlias, ITheme } from "./theme.types";
 import deepmerge from "deepmerge";
 import { getShadowAliasesInString } from "./utils";
-import { IColorNames } from "../colors/colors.types"; //TODO: verify if ok to import like this
+import { IColorNames } from "../colors/colors.types";
 import { fontFamilies } from "./constants";
 
 export const createTheme = (

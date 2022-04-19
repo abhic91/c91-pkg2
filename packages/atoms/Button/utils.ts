@@ -1,10 +1,9 @@
 import { css } from "styled-components";
-import {
-  IButtonAlias,
+import type {
   ITextSizes,
   ITheme,
   IThemeButtonVariants,
-} from "../../design-system/theme/theme.types";
+} from "@abhic91/design-system";
 import { IButtonProps } from "./Button.types";
 
 export const generateButtonStyles = (

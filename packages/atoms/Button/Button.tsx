@@ -1,8 +1,9 @@
 import { IButtonProps } from "./Button.types";
 import styled, { css } from "styled-components";
-import React from "react";
-import { ITheme } from "../../design-system/theme/theme.types";
 import { generateButtonStyles } from "./utils";
+
+import React from "react";
+import type { ITheme } from "@abhic91/design-system/";
 
 const StyledButton = styled.button`
   all: unset;
@@ -58,7 +59,7 @@ Button.defaultProps = {
   type: "button",
   variant: "primary-contained",
   color: "primary",
-  size: "sm",
+  size: "lg",
 } as IButtonProps;
 
 export default Button;
