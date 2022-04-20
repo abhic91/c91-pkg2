@@ -1,5 +1,5 @@
 import { ITextFieldProps } from "./TextField.types";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import type { ITheme } from "@abhic91/design-system";
 
@@ -17,10 +17,18 @@ const StyledInputText = styled.input`
   ${({
     theme,
     error,
-  }: { theme: ITheme } & ITextFieldProps["inputTextProps"]) => css`
+    paddingLeft,
+    paddingRight,
+  }: { theme: ITheme } & {
+    paddingLeft?: string;
+    padding?: string;
+  } & ITextFieldProps["inputTextProps"]) => css`
     width: 100%;
     border-radius: ${theme.textField?.borderRadius};
     padding: ${theme.textField?.padding};
+    padding-left: ${paddingLeft};
+    padding-right: ${paddingRight};
+    font-size: ${theme.textField?.textFontSize};
     border: 1px solid
       ${error
         ? theme.textField?.errorBorderColor
@@ -29,6 +37,7 @@ const StyledInputText = styled.input`
     box-shadow: ${theme.textField?.shadow};
     &::placeholder {
       color: ${theme.textField?.placeholderColor};
+      font-size: ${theme.textField?.placeholderFontSize};
     }
     &:focus {
       outline: 3px solid
@@ -41,15 +50,79 @@ const StyledInputText = styled.input`
           ? theme.textField?.errorBorderColor
           : theme.textField?.borderColorFocus};
     }
+    &:disabled {
+      box-shadow: none;
+      cursor: not-allowed;
+      &::placeholder {
+        color: ${theme.textField?.placeholderColorDisabled};
+      }
+    }
   `};
+`;
+
+const StyledInputTextBoxWrapper = styled.div`
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledHelperText = styled.p`
+  ${({ theme, error }: { theme: ITheme } & { error: boolean }) => css`
+    color: ${error
+      ? theme.textField?.errorTextColor
+      : theme.textField?.hintTextColor};
+    font-size: ${theme.textField?.hintFontSize};
+    margin-top: 0.4rem; //TODO: VERIFY IF OK
+    margin-left: 0.15rem;
+    font-weight: ${theme.textField?.hintFontWeight};
+  `}
+`;
+
+const StyledLeadingAdornmentWrapper = styled.div`
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 10px;
+`;
+const StyledTrailingAdornmentWrapper = styled.div`
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
 `;
 
 const TextField = ({
   label,
   inputTextProps: { id, value, onChange, ...inputTextProps },
   error,
+  hintText,
+  errorMessage,
+  leadingInputAdornment,
+  trailingInputAdornment,
   ...others
 }: ITextFieldProps) => {
+  const [inputPaddingLeft, setInputPaddingLeft] = useState("10px");
+  const [inputPaddingRight, setInputPaddingRight] = useState("10px");
+  const leadingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
+  const trailingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (leadingInputAdornment) {
+      setInputPaddingLeft(
+        `${(leadingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
+      );
+    }
+    if (trailingInputAdornment) {
+      setInputPaddingRight(
+        `${(trailingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
+      );
+    }
+  }, [leadingInputAdornment, trailingInputAdornment]);
   return (
     <div>
       {label && (
@@ -57,13 +130,29 @@ const TextField = ({
           {label}
         </StyledLabel>
       )}
-      <div>
+      <StyledInputTextBoxWrapper>
+        {leadingInputAdornment && (
+          <StyledLeadingAdornmentWrapper ref={leadingAdornmentWrapperRef}>
+            {leadingInputAdornment}
+          </StyledLeadingAdornmentWrapper>
+        )}
         <StyledInputText
           error={error}
-          placeholder={inputTextProps.placeholder}
           {...inputTextProps}
+          paddingLeft={inputPaddingLeft}
+          paddingRight={inputPaddingRight}
         />
-      </div>
+        {trailingInputAdornment && (
+          <StyledTrailingAdornmentWrapper ref={trailingAdornmentWrapperRef}>
+            {trailingInputAdornment}
+          </StyledTrailingAdornmentWrapper>
+        )}
+      </StyledInputTextBoxWrapper>
+      {(hintText || errorMessage) && (
+        <StyledHelperText error={Boolean(error)}>
+          {errorMessage || hintText}
+        </StyledHelperText>
+      )}
     </div>
   );
 };

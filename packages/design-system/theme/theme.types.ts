@@ -51,6 +51,7 @@ export type ITextFieldSettings = {
   errorOutlineColorOnFocus?: string;
 
   placeholderColor?: string;
+  placeholderColorDisabled?: string;
 
   disabledBgColor?: string;
 
@@ -61,6 +62,8 @@ export type ITextFieldSettings = {
 
   labelFontSize?: string;
   hintFontSize?: string;
+  textFontSize?: string;
+  placeholderFontSize?: string;
 
   labelFontWeight?: IFontWeightRanges;
   hintFontWeight?: IFontWeightRanges;

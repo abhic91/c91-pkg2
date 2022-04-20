@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { createTheme } from "@abhic91/design-system";
 
 export const parameters = {
@@ -15,8 +15,12 @@ export const parameters = {
 export const decorators = [
   (Story) => {
     const theme = createTheme("violet", "gray");
+    const GlobalStyles = createGlobalStyle`
+      *{padding: 0; margin: 0; box-sizing: border-box;}
+    `;
     return (
       <ThemeProvider theme={theme}>
+        <GlobalStyles />
         <Story />
       </ThemeProvider>
     );

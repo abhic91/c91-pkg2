@@ -286,10 +286,12 @@ export const createTheme = (
 
       errorTextColor: colorAliases.errorTextColor,
 
-      hintFontSize: textAliases.size.sm,
+      hintFontSize: textAliases.size.xs,
       labelFontSize: textAliases.size.sm,
+      textFontSize: textAliases.size.sm,
+      placeholderFontSize: textAliases.size.sm,
 
-      hintTextColor: colorAliases.neutralTextColor,
+      hintTextColor: colorAliases.neutralTextColorLight,
       labelTextColor: colorAliases.neutralTextColor,
 
       labelFontWeight: 400,
@@ -298,7 +300,8 @@ export const createTheme = (
       outlineColorOnFocus: colorAliases.primaryLightOutlinedColor,
       errorOutlineColorOnFocus: colorAliases.errorLightOutlinedColor,
 
-      placeholderColor: colors[neutralColorName][300],
+      placeholderColor: colors[neutralColorName][400],
+      placeholderColorDisabled: colors[neutralColorName][300],
 
       padding: "10px 14px",
 
