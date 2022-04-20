@@ -1,4 +1,4 @@
-import { ITextFieldProps } from "./TextField.types";
+import { IInputTextProps, ITextFieldProps } from "./TextField.types";
 import React, { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import type { ITheme } from "@abhic91/design-system";
@@ -13,16 +13,16 @@ const StyledLabel = styled.label`
   `};
 `;
 
-const StyledInputText = styled.input`
+const StyledInputText = styled.input<{
+  paddingLeft?: string;
+  paddingRight?: string;
+}>`
   ${({
     theme,
     error,
     paddingLeft,
     paddingRight,
-  }: { theme: ITheme } & {
-    paddingLeft?: string;
-    padding?: string;
-  } & ITextFieldProps["inputTextProps"]) => css`
+  }: { theme: ITheme } & IInputTextProps) => css`
     width: 100%;
     border-radius: ${theme.textField?.borderRadius};
     padding: ${theme.textField?.padding};
