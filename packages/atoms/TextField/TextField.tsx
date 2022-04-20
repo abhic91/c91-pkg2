@@ -99,7 +99,7 @@ const StyledTrailingAdornmentWrapper = styled.div`
 
 const TextField = ({
   label,
-  inputTextProps: { id, value, onChange, ...inputTextProps },
+  inputTextProps: { id, ...inputTextProps },
   error,
   hintText,
   errorMessage,

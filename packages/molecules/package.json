@@ -1,11 +1,33 @@
 {
   "name": "@abhic91/molecules",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/types/index.d.ts",
   "author": "Abhilash",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/abhic91/c91-pkg2.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "@abhic91/design-system": "1.0.0",
+    "@abhic91/atoms": "1.0.2",
+    "react": "17.0.2"
+  },
+  "devDependencies": {
+    "@abhic91/design-system": "1.0.0",
+    "react": "17.0.2"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.ts",
+    "publish": "yarn publish --access=public",
+    "test": "jest --verbose"
   }
 }
