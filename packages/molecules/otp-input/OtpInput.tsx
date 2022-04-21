@@ -1,7 +1,9 @@
 import { TextField } from "@abhic91/atoms";
 import React, {
+  ChangeEvent,
   createRef,
   Dispatch,
+  FocusEvent,
   KeyboardEvent,
   SetStateAction,
   useEffect,
@@ -126,9 +128,11 @@ const OTPInput = ({
             inputTextProps={{
               id,
               value: inputValue,
-              onChange: (e) => onChange(id, e.target.value, index),
-              onFocus: (e) => e.target.select(),
-              onKeyUp: (e) => onKeyUp(e, id, index),
+              onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                onChange(id, e.target.value, index),
+              onFocus: (e: FocusEvent<HTMLInputElement>) => e.target.select(),
+              onKeyUp: (e: KeyboardEvent<HTMLInputElement>) =>
+                onKeyUp(e, id, index),
               disabled: isDisabled,
               error: isError,
               "aria-label": `OTP Input ${index + 1}`,
