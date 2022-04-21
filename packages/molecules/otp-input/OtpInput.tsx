@@ -1,115 +1,144 @@
 import { TextField } from "@abhic91/atoms";
-import React, { useState } from "react";
+import React, {
+  createRef,
+  Dispatch,
+  KeyboardEvent,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import styled from "styled-components";
+import { generateRandomId } from "./utils";
 
-type OTPInputProps = {
+const StyledWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  & input {
+    width: 50px;
+    height: 45px;
+    text-align: center;
+  }
+`;
+
+export type IOTPInputProps = {
   noOfInputs: number;
-  //   isDisabled?: Boolean;
-  //   isErrorProp: Boolean;
-  //   clearOTPKey?: number;
-  //   setValue: Dispatch<SetStateAction<string>>; //function that sets value of parent's otp val state
-  //   onEnterPressed: Function;
+  isDisabled?: boolean;
+  isErrorProp: boolean;
+  clearOTPKey?: number;
+  setOTPValue: Dispatch<SetStateAction<string>>; //function that sets value of parent's otp val state
+  onEnterPressed?: Function;
+  errorMessage?: string;
   //   inputTypeProp: '';
 };
 
-const OTPInput = ({ noOfInputs }: OTPInputProps) => {
-  const [allInpValues, setAllInpValues] = useState(["0"]);
-  return (
-    <div>
-      <TextField
-        inputTextProps={{
-          id: "ffs",
-          value: allInpValues[0],
-          onChange: (e) => {
-            console.log("ffssss"), setAllInpValues([e.target.value]);
-          },
-        }}
-      />
-    </div>
+const OTPInput = ({
+  noOfInputs,
+  setOTPValue,
+  isDisabled,
+  isErrorProp,
+  onEnterPressed,
+  clearOTPKey,
+}: IOTPInputProps) => {
+  const randomIds = useMemo(
+    () =>
+      [...Array(noOfInputs)].map((_, index) => generateRandomId(`${index}`)),
+    [noOfInputs]
   );
-  //   const noOfInputsArray = [...Array(noOfInputs)];
-  //   const [inpValues, setInpValues] = useState<string[]>([...Array(noOfInputs)].map(() => ''));
-  //   const [isError, setIsError] = useState<Boolean>(isErrorProp);
-  //   const otpInputRefs = useRef<HTMLInputElement[]>([]);
+  const [allInpValues, setAllInpValues] = useState(() =>
+    randomIds.map((randomId) => ({ id: randomId, inputValue: "" }))
+  );
+  const inputRefs = useRef(
+    randomIds.map((id) => {
+      return { id, ref: createRef<HTMLInputElement | null>() };
+    })
+  );
 
-  //   const onInputChange = (val: string, indx: number) => {
-  //     val = val.length > 1 ? val.slice(-1) : val;
-  //     setInpValues((inpValues) => inpValues.map((currentVal, i) => (indx === i ? val : currentVal)));
-  //     if (val) {
-  //       setFocusOnInputAtIndex(indx + 1);
-  //     }
-  //     //  else setFocusOnInputAtIndex(indx - 1);
-  //   };
+  const [isError, setIsError] = useState(false);
 
-  //   const selectTypedText = (index: number) => {
-  //     const ref = otpInputRefs.current[index];
-  //     if (ref?.value)
-  //       setTimeout(() => {
-  //         ref.select();
-  //       }, 0);
-  //   };
-  //   const setFocusOnInputAtIndex = (index: number) => {
-  //     const ref = otpInputRefs.current[index];
-  //     if (ref) ref.focus();
-  //   };
+  const onChange = (id: string, value: string, index: number) => {
+    setAllInpValues((currentVal) =>
+      currentVal.map((input) =>
+        input.id === id ? { ...input, inputValue: value.slice(-1) } : input
+      )
+    );
 
-  //   const handleKeyUp = (e: KeyboardEvent<HTMLDivElement>, index: number) => {
-  //     if (e.key === 'Enter') {
-  //       onEnterPressed();
-  //       return;
-  //     }
-  //     if (e.key === 'Backspace') {
-  //       // e.preventDefault();
-  //       // setInpValues((inpValues) => inpValues.map((currentVal, i) => (i === index ? '' : currentVal)));
-  //       setFocusOnInputAtIndex(index - 1);
-  //       return;
-  //     }
-  //     if (e.key === 'ArrowRight') setFocusOnInputAtIndex(index + 1);
-  //     else if (e.key === 'ArrowLeft') setFocusOnInputAtIndex(index - 1);
-  //   };
+    if (value.length) setFocusOnInputAtIndex(index + 1);
 
-  //   const onPaste = (e: ClipboardEvent) => {
-  //     e.preventDefault();
-  //     const pastedText = e.clipboardData.getData('Text');
-  //     setInpValues(pastedText.split(''));
-  //   };
-  //   useEffect(() => {
-  //     otpInputRefs.current[0].focus();
-  //   }, []);
-  //   useEffect(() => {
-  //     setIsError(isErrorProp);
-  //     // setFocusOnInputAtIndex(inpValues.findIndex((v) => v.length === 0));
-  //   }, [isErrorProp, setIsError]);
+    setIsError(false);
+  };
 
-  //   useEffect(() => {
-  //     setValue(inpValues.join(''));
-  //   }, [inpValues, setValue]);
+  const onKeyUp = (
+    e: KeyboardEvent<HTMLInputElement>,
+    id: string,
+    index: number
+  ) => {
+    if (e.key === "Backspace") {
+      setAllInpValues((currentVal) =>
+        currentVal.map((input) =>
+          input.id === id ? { ...input, inputValue: "" } : input
+        )
+      );
+      setFocusOnInputAtIndex(index - 1);
+      return;
+    }
+    if (e.key === "ArrowLeft") {
+      setFocusOnInputAtIndex(index - 1);
+      return;
+    }
+    if (e.key === "ArrowRight") {
+      setFocusOnInputAtIndex(index + 1);
+      return;
+    }
+    if (e.key === "Enter") {
+      onEnterPressed?.();
+      return;
+    }
+  };
 
-  //   useEffect(() => {
-  //     setInpValues([...Array(noOfInputs)].map(() => ''));
-  //     setFocusOnInputAtIndex(0);
-  //   }, [clearOTPKey, setInpValues, noOfInputs]);
+  const setFocusOnInputAtIndex = (index: number) => {
+    const inputRef = inputRefs.current[index]?.ref;
+    if (inputRef) inputRef.current?.focus();
+  };
+  // set the OTP value for the parent component
+  //using the OTPInput component
+  useEffect(() => {
+    setOTPValue(allInpValues.map((input) => input.inputValue).join(""));
+  }, [allInpValues]);
 
-  //   return (
-  //     <>
-  //       <Box sx={{ display: 'flex', gap: 1 }}>
-  //         {noOfInputsArray.map((_, indx) => (
-  //           <TextField
-  //             sx={{ maxWidth: '50px', '& input': { textAlign: 'center' } }}
-  //             key={indx}
-  //             type="number"
-  //             disabled={Boolean(isDisabled)}
-  //             inputRef={(el) => (otpInputRefs.current[indx] = el)}
-  //             error={Boolean(isError)}
-  //             value={inpValues[indx]}
-  //             inputProps={{ inputMode: 'numeric' }}
-  //             onKeyUp={(e) => handleKeyUp(e, indx)}
-  //             onFocus={() => selectTypedText(indx)}
-  //             onChange={(e) => onInputChange(e.target.value, indx)}
-  //             onPaste={(e) => onPaste(e)}></TextField>
-  //         ))}
-  //       </Box>
-  //     </>
-  //   );
+  useEffect(() => {
+    setAllInpValues((currentVal) =>
+      currentVal.map((input) => ({ ...input, inputValue: "" }))
+    );
+  }, [clearOTPKey]);
+
+  useEffect(() => {
+    setIsError(isErrorProp);
+  }, [isErrorProp]);
+
+  return (
+    <StyledWrapper>
+      {allInpValues.map(({ id, inputValue }, index) => {
+        return (
+          <TextField
+            key={id}
+            inputTextProps={{
+              id,
+              value: inputValue,
+              onChange: (e) => onChange(id, e.target.value, index),
+              onFocus: (e) => e.target.select(),
+              onKeyUp: (e) => onKeyUp(e, id, index),
+              disabled: isDisabled,
+              error: isError,
+              "aria-label": `OTP Input ${index + 1}`,
+            }}
+            ref={inputRefs.current[index]?.ref}
+          />
+        );
+      })}
+    </StyledWrapper>
+  );
 };
 
 export default OTPInput;

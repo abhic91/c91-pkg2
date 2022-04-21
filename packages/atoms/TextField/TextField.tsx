@@ -1,5 +1,5 @@
 import { IInputTextProps, ITextFieldProps } from "./TextField.types";
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import type { ITheme } from "@abhic91/design-system";
 
@@ -97,65 +97,71 @@ const StyledTrailingAdornmentWrapper = styled.div`
   right: 10px;
 `;
 
-const TextField = ({
-  label,
-  inputTextProps: { id, ...inputTextProps },
-  error,
-  hintText,
-  errorMessage,
-  leadingInputAdornment,
-  trailingInputAdornment,
-  ...others
-}: ITextFieldProps) => {
-  const [inputPaddingLeft, setInputPaddingLeft] = useState("10px");
-  const [inputPaddingRight, setInputPaddingRight] = useState("10px");
-  const leadingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
-  const trailingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    if (leadingInputAdornment) {
-      setInputPaddingLeft(
-        `${(leadingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
-      );
-    }
-    if (trailingInputAdornment) {
-      setInputPaddingRight(
-        `${(trailingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
-      );
-    }
-  }, [leadingInputAdornment, trailingInputAdornment]);
-  return (
-    <div>
-      {label && (
-        <StyledLabel htmlFor={id} {...others.labelProps}>
-          {label}
-        </StyledLabel>
-      )}
-      <StyledInputTextBoxWrapper>
-        {leadingInputAdornment && (
-          <StyledLeadingAdornmentWrapper ref={leadingAdornmentWrapperRef}>
-            {leadingInputAdornment}
-          </StyledLeadingAdornmentWrapper>
+const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
+  (
+    {
+      label,
+      inputTextProps: { id, ...inputTextProps },
+      error,
+      hintText,
+      errorMessage,
+      leadingInputAdornment,
+      trailingInputAdornment,
+      ...others
+    }: ITextFieldProps,
+    inputRef
+  ) => {
+    const [inputPaddingLeft, setInputPaddingLeft] = useState("10px");
+    const [inputPaddingRight, setInputPaddingRight] = useState("10px");
+    const leadingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
+    const trailingAdornmentWrapperRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+      if (leadingInputAdornment) {
+        setInputPaddingLeft(
+          `${(leadingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
+        );
+      }
+      if (trailingInputAdornment) {
+        setInputPaddingRight(
+          `${(trailingAdornmentWrapperRef.current?.clientWidth || 0) + 15}px`
+        );
+      }
+    }, [leadingInputAdornment, trailingInputAdornment]);
+    return (
+      <div>
+        {label && (
+          <StyledLabel htmlFor={id} {...others.labelProps}>
+            {label}
+          </StyledLabel>
         )}
-        <StyledInputText
-          error={error}
-          {...inputTextProps}
-          paddingLeft={inputPaddingLeft}
-          paddingRight={inputPaddingRight}
-        />
-        {trailingInputAdornment && (
-          <StyledTrailingAdornmentWrapper ref={trailingAdornmentWrapperRef}>
-            {trailingInputAdornment}
-          </StyledTrailingAdornmentWrapper>
+        <StyledInputTextBoxWrapper>
+          {leadingInputAdornment && (
+            <StyledLeadingAdornmentWrapper ref={leadingAdornmentWrapperRef}>
+              {leadingInputAdornment}
+            </StyledLeadingAdornmentWrapper>
+          )}
+          <StyledInputText
+            error={error}
+            ref={inputRef}
+            {...inputTextProps}
+            paddingLeft={inputPaddingLeft}
+            paddingRight={inputPaddingRight}
+          />
+          {trailingInputAdornment && (
+            <StyledTrailingAdornmentWrapper ref={trailingAdornmentWrapperRef}>
+              {trailingInputAdornment}
+            </StyledTrailingAdornmentWrapper>
+          )}
+        </StyledInputTextBoxWrapper>
+        {(hintText || errorMessage) && (
+          <StyledHelperText error={Boolean(error)}>
+            {errorMessage || hintText}
+          </StyledHelperText>
         )}
-      </StyledInputTextBoxWrapper>
-      {(hintText || errorMessage) && (
-        <StyledHelperText error={Boolean(error)}>
-          {errorMessage || hintText}
-        </StyledHelperText>
-      )}
-    </div>
-  );
-};
+      </div>
+    );
+  }
+);
 
 TextField.defaultProps = {
   inputTextProps: { id: "default-text-field" },

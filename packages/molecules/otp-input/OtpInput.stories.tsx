@@ -10,6 +10,8 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     onChange: { action: "changed" },
+    onEnterPressed: { action: "enter" },
+    setOTPValue: { action: "OTP value set" },
   },
 } as ComponentMeta<typeof OtpInput>;
 
@@ -23,4 +25,6 @@ const Template: ComponentStory<typeof OtpInput> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   noOfInputs: 6,
+  clearOTPKey: 1,
+  isErrorProp: false,
 };
