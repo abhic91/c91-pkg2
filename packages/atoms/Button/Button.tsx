@@ -51,7 +51,11 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props: IButtonProps) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+  return (
+    <StyledButton data-testid="button" {...props}>
+      {props.children}
+    </StyledButton>
+  );
 };
 
 Button.defaultProps = {

@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@abhic91/colors@1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@abhic91/colors/1.0.0/200fb9ead13635ed2c7e52bdc9d8652636867126647fab34dfabb81310448865#fc96adb9fb6afda1b39dfb946b01a2e621309f19"
-  integrity sha512-yA9SHhidlCKSMydUkqimkkRtbwkhkzF3LO0B49I/Sxej87gC6+WFyZuHMLgCwQfWD+3ZqnmJeenFjRCstgFFBg==
-
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.1.2.tgz#4edca94973ded9630d20101cd8559cedb8d8bd34"
@@ -11684,7 +11679,7 @@ react-textarea-autosize@^8.3.0:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react@^17.0.2:
+react@17.0.2, react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

@@ -99,10 +99,23 @@ const OTPInput = ({
     }
   };
 
+  const onPaste = (e: ClipboardEvent) => {
+    e.preventDefault();
+    const pastedText = (e.clipboardData?.getData("Text") || "").trim();
+    const pastedTextArray = pastedText.split("");
+    setAllInpValues((currentVal) =>
+      currentVal.map((inp, index) => ({
+        ...inp,
+        inputValue: pastedTextArray[index] || "",
+      }))
+    );
+  };
+
   const setFocusOnInputAtIndex = (index: number) => {
     const inputRef = inputRefs.current[index]?.ref;
     if (inputRef) inputRef.current?.focus();
   };
+
   // set the OTP value for the parent component
   //using the OTPInput component
   useEffect(() => {
@@ -120,7 +133,7 @@ const OTPInput = ({
   }, [isErrorProp]);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-testid="otpWrapper">
       {allInpValues.map(({ id, inputValue }, index) => {
         return (
           <TextField
@@ -128,6 +141,7 @@ const OTPInput = ({
             inputTextProps={{
               id,
               value: inputValue,
+              onPaste: (e: ClipboardEvent) => onPaste(e),
               onChange: (e: ChangeEvent<HTMLInputElement>) =>
                 onChange(id, e.target.value, index),
               onFocus: (e: FocusEvent<HTMLInputElement>) => e.target.select(),

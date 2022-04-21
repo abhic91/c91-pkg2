@@ -24,7 +24,6 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.ts",
-    "publish": "yarn publish --access=public",
-    "test": "jest --verbose"
+    "publish": "yarn publish --access=public"
   }
 }
