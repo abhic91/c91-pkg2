@@ -11,11 +11,9 @@ export type ITextFieldProps = {
   labelProps?: HTMLAttributes<HTMLLabelElement>;
 
   label?: string;
-  error?: boolean;
   errorMessage?: string;
   hintText?: string;
 
   leadingInputAdornment?: string | React.ReactNode;
   trailingInputAdornment?: string | React.ReactNode[] | React.ReactNode;
-  [key: string]: any;
 };

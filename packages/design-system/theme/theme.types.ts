@@ -157,6 +157,7 @@ export type IThemeButtonVariants = {
 
   neutralOutlined: IButtonAlias;
   neutralLink: IButtonAlias;
+  neutralTextOnly: IButtonAlias;
 
   errorContained?: IButtonAlias;
   errorLight?: IButtonAlias;
@@ -165,10 +166,20 @@ export type IThemeButtonVariants = {
   errorLink?: IButtonAlias;
 };
 
+export type IDropdownPopoverSettings = {
+  backgroundColor?: string;
+  borderColor?: string;
+  borderRadius?: string;
+  shadow?: string;
+  padding?: string;
+  appearAnimation?: string;
+};
+
 export type ITheme = {
   colorAliases?: IColorAliases;
   shadowAliases?: IShadowAlias;
   textAliases?: ITextAlias;
   button?: IThemeButtonVariants;
   textField?: ITextFieldSettings;
+  dropdownPopover?: IDropdownPopoverSettings;
 };

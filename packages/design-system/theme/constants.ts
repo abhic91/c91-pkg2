@@ -1,4 +1,4 @@
-export const defaultShadowColor = `#10182814`;
+export const defaultShadowColor = [`#10182814`, `#10182808`];
 
 export const fontFamilies = [
   "PPTelegraf",

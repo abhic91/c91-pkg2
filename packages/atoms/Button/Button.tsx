@@ -2,12 +2,15 @@ import { IButtonProps } from "./Button.types";
 import styled from "styled-components";
 import { generateButtonStyles } from "./utils";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import type { ITheme } from "@abhic91/design-system/";
 
 const StyledButton = styled.button`
   all: unset;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &:disabled {
     cursor: not-allowed;
   }
@@ -46,17 +49,24 @@ const StyledButton = styled.button`
       case "error-link": {
         return generateButtonStyles("errorLink");
       }
+      case "neutral-text-only": {
+        return generateButtonStyles("neutralTextOnly");
+      }
     }
   }}
 `;
 
-const Button = (props: IButtonProps) => {
-  return (
-    <StyledButton data-testid="button" {...props}>
-      {props.children}
-    </StyledButton>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, IButtonProps>(
+  (props: IButtonProps, ref) => {
+    return (
+      <StyledButton data-testid="button" {...props} ref={ref}>
+        {props.leadingIcon && <span>{props.leadingIcon}</span>}
+        {props.children}
+        {props.trailingIcon && <span>{props.trailingIcon}</span>}
+      </StyledButton>
+    );
+  }
+);
 
 Button.defaultProps = {
   type: "button",

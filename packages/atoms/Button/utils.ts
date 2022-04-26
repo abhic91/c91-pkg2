@@ -9,7 +9,7 @@ import { IButtonProps } from "./Button.types";
 export const generateButtonStyles = (
   btnThemeVariant: keyof IThemeButtonVariants
 ) => {
-  return ({ theme, size }: { theme: ITheme } & IButtonProps) => {
+  return ({ theme, size, iconOnly }: { theme: ITheme } & IButtonProps) => {
     let buttonFontSize = theme.textAliases?.size[size as ITextSizes];
     return css`
       background-color: ${theme.button?.[btnThemeVariant]?.backgroundColor};
@@ -19,8 +19,9 @@ export const generateButtonStyles = (
         ? `1px solid ${theme.button?.[btnThemeVariant]?.borderColor}`
         : "none"};
       border-radius: ${theme.button?.[btnThemeVariant]?.borderRadius};
+      aspect-ratio: ${iconOnly ? "1" : "auto"};
       font-size: ${buttonFontSize};
-      padding: 0.625em 1em;
+      padding: ${iconOnly ? "1em" : "0.625em 1em"};
       &:active {
         background-color: ${theme.button?.[btnThemeVariant]
           ?.backgroundColorActive};

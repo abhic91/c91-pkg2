@@ -17,6 +17,7 @@ export const decorators = [
     const theme = createTheme("violet", "gray");
     const GlobalStyles = createGlobalStyle`
       *{padding: 0; margin: 0; box-sizing: border-box;}
+      ul{ list-style: none}
     `;
     return (
       <ThemeProvider theme={theme}>

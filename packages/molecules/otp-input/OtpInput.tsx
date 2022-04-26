@@ -1,6 +1,7 @@
 import { TextField } from "@abhic91/atoms";
 import React, {
   ChangeEvent,
+  ClipboardEvent,
   createRef,
   Dispatch,
   FocusEvent,
@@ -53,7 +54,7 @@ const OTPInput = ({
   );
   const inputRefs = useRef(
     randomIds.map((id) => {
-      return { id, ref: createRef<HTMLInputElement | null>() };
+      return { id, ref: createRef<HTMLInputElement>() };
     })
   );
 
@@ -141,7 +142,7 @@ const OTPInput = ({
             inputTextProps={{
               id,
               value: inputValue,
-              onPaste: (e: ClipboardEvent) => onPaste(e),
+              onPaste: (e: ClipboardEvent<HTMLInputElement>) => onPaste(e),
               onChange: (e: ChangeEvent<HTMLInputElement>) =>
                 onChange(id, e.target.value, index),
               onFocus: (e: FocusEvent<HTMLInputElement>) => e.target.select(),

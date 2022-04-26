@@ -162,6 +162,29 @@ export const createTheme = (
           colors[neutralColorName][0],
         ]),
       },
+      neutralTextOnly: {
+        backgroundColor: colorAliases.transparentColor,
+        backgroundColorActive: colorAliases.transparentColor,
+        backgroundColorFocus: colorAliases.transparentColor,
+        backgroundColorHover: colorAliases.neutralBgColorSaturated,
+        backgroundColorDisabled: colorAliases.neutralBgColor,
+
+        borderRadius: defaultBorderRadius,
+
+        textColor: colorAliases.neutralTextColor,
+        textColorHover: colorAliases.neutralTextColor,
+        textColorActive: colorAliases.neutralTextColor,
+        textColorDisabled: colorAliases.neutralTextColorDisabled,
+
+        outlineColorOnFocus: colorAliases.neutralOutlineColor,
+
+        shadow: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.gray[0],
+        ]),
+        shadowHover: getShadowAliasesInString(shadowAliases.shadow, [
+          colors.gray[0],
+        ]),
+      },
       errorContained: {
         backgroundColor: colorAliases.errorBgColor,
         backgroundColorActive: colorAliases.errorBgColorSaturated,
@@ -311,6 +334,13 @@ export const createTheme = (
         colors[primaryColorName][100],
       ]),
     },
+    dropdownPopover: {
+      backgroundColor: colorAliases.neutralBgColor,
+      borderColor: colorAliases.neutralBorderColor,
+      borderRadius: defaultBorderRadius,
+      shadow: getShadowAliasesInString(shadowAliases.shadowLg, []),
+      // padding: `1rem 1.5rem`,
+    },
   };
   return deepmerge(defaultUISettings, theme);
 };
@@ -389,24 +419,18 @@ export const createShadowAlias = (customShadowAliases?: IShadowAlias) => {
   const defaultShadowAlias: IShadowAlias = {
     shadow: [`0px 1px 2px`],
     shadowHover: [`0px 1px 2px`],
-    shadowSm: [`0px 1px 2px 0px #1018280F`, `0px 1px 2px 0px #1018280F`],
-    shadowSmHover: [`0px 1px 2px 0px #1018280F`, `0px 1px 2px 0px #1018280F`],
-    shadowMd: [`0px 2px 4px -2px #1018280F`, `0px 4px 8px -2px #1018281A`],
-    shadowMdHover: [`0px 2px 4px -2px #1018280F`, `0px 4px 8px -2px #1018281A`],
-    shadowLg: [`0px 4px 6px -2px #10182808`, `0px 12px 16px -4px #10182814`],
-    shadowLgHover: [
-      `0px 4px 6px -2px #10182808`,
-      `0px 12px 16px -4px #10182814`,
-    ],
-    shadowXl: [`0px 12px 16px -4px #10182814`, `0px 20px 24px -4px #10182814`],
-    shadowXlHover: [
-      `0px 12px 16px -4px #10182814`,
-      `0px 20px 24px -4px #10182814`,
-    ],
-    shadow2Xl: [`0px 24px 48px -12px #1018282E`],
-    shadow2XlHover: [`0px 24px 48px -12px #1018282E`],
-    shadow3Xl: [`0px 32px 64px -12px #10182824`],
-    shadow3XlHover: [`0px 32px 64px -12px #10182824`],
+    shadowSm: [`0px 1px 2px 0px`, `0px 1px 2px 0px`],
+    shadowSmHover: [`0px 1px 2px 0px`, `0px 1px 2px 0px`],
+    shadowMd: [`0px 2px 4px -2px`, `0px 4px 8px -2px`],
+    shadowMdHover: [`0px 2px 4px -2px`, `0px 4px 8px -2px`],
+    shadowLg: [`0px 4px 6px -2px`, `0px 12px 16px -4px`],
+    shadowLgHover: [`0px 4px 6px -2px`, `0px 12px 16px -4px`],
+    shadowXl: [`0px 12px 16px -4px`, `0px 20px 24px -4px`],
+    shadowXlHover: [`0px 12px 16px -4px`, `0px 20px 24px -4px`],
+    shadow2Xl: [`0px 24px 48px -12px`],
+    shadow2XlHover: [`0px 24px 48px -12px`],
+    shadow3Xl: [`0px 32px 64px -12px`],
+    shadow3XlHover: [`0px 32px 64px -12px`],
   };
 
   return deepmerge(

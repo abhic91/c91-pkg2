@@ -32,8 +32,8 @@ PrimaryLight.args = {
   children: "Lighter button",
 };
 
-export const TextOnly = Template.bind({});
-TextOnly.args = {
+export const PrimaryTextOnly = Template.bind({});
+PrimaryTextOnly.args = {
   variant: "primary-text-only",
   children: "Text only button",
 };
@@ -55,7 +55,11 @@ NeutralLink.args = {
   variant: "neutral-link",
   children: "Neutral link",
 };
-
+export const NeutralTextOnly = Template.bind({});
+NeutralTextOnly.args = {
+  variant: "neutral-text-only",
+  children: "Neutral Text only button",
+};
 export const ErrorContained = Template.bind({});
 ErrorContained.args = {
   variant: "error-contained",

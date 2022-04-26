@@ -11,6 +11,7 @@ export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
     | "primary-light"
     | "neutral-outlined"
     | "neutral-link"
+    | "neutral-text-only"
     | "error-contained"
     | "error-light"
     | "error-outlined"
@@ -19,4 +20,7 @@ export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
 
   children?: ReactNode;
   disabled?: boolean;
+  leadingIcon?: ReactNode;
+  trailingIcon?: ReactNode;
+  iconOnly?: boolean;
 };

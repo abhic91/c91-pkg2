@@ -9,7 +9,11 @@ export const getShadowAliasesInString = (
     ? shadowAliases
         .map(
           (shadow, index) =>
-            `${shadow} ${shadowColors[index] || defaultShadowColor}`
+            `${shadow} ${
+              shadowColors[index] ||
+              defaultShadowColor[index] ||
+              defaultShadowColor[0]
+            }`
         )
         .join(",")
     : shadowAliases;

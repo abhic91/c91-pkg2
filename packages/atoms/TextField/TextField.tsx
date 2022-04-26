@@ -68,7 +68,7 @@ const StyledInputTextBoxWrapper = styled.div`
   align-items: center;
 `;
 
-const StyledHelperText = styled.p`
+const StyledHintText = styled.p`
   ${({ theme, error }: { theme: ITheme } & { error: boolean }) => css`
     color: ${error
       ? theme.textField?.errorTextColor
@@ -102,7 +102,6 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
     {
       label,
       inputTextProps: { id, ...inputTextProps },
-      error,
       hintText,
       errorMessage,
       leadingInputAdornment,
@@ -141,7 +140,7 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
             </StyledLeadingAdornmentWrapper>
           )}
           <StyledInputText
-            error={error}
+            error={Boolean(errorMessage)}
             ref={inputRef}
             {...inputTextProps}
             paddingLeft={inputPaddingLeft}
@@ -154,9 +153,9 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
           )}
         </StyledInputTextBoxWrapper>
         {(hintText || errorMessage) && (
-          <StyledHelperText error={Boolean(error)}>
+          <StyledHintText error={Boolean(errorMessage)}>
             {errorMessage || hintText}
-          </StyledHelperText>
+          </StyledHintText>
         )}
       </div>
     );
