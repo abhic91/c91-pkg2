@@ -192,3 +192,13 @@ LeadingAndTrailing.args = {
   ...TrailingInputText.args,
   ...TrailingInputMultiple.args,
 };
+
+export const PasswordInput = Template.bind({});
+
+PasswordInput.args = {
+  ...Default.args,
+  label: "Password",
+  inputTextProps: {
+    type: "password",
+  },
+};

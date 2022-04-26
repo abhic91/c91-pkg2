@@ -70,6 +70,7 @@
     "styled-components": "^5.3.5"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.1.7",
     "deepmerge": "^4.2.2",
     "downshift": "^6.1.7"
   }

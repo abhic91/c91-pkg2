@@ -28,6 +28,7 @@ const StyledInputText = styled.input<{
     padding: ${theme.textField?.padding};
     padding-left: ${paddingLeft};
     padding-right: ${paddingRight};
+    transition: outline 35ms ease-in;
     font-size: ${theme.textField?.textFontSize};
     border: 1px solid
       ${error
