@@ -107,6 +107,7 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
       errorMessage,
       leadingInputAdornment,
       trailingInputAdornment,
+      wrapperProps,
       ...others
     }: ITextFieldProps,
     inputRef
@@ -128,7 +129,7 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
       }
     }, [leadingInputAdornment, trailingInputAdornment]);
     return (
-      <div>
+      <div {...wrapperProps}>
         {label && (
           <StyledLabel htmlFor={id} {...others.labelProps}>
             {label}
@@ -141,6 +142,7 @@ const TextField = forwardRef<HTMLInputElement | null, ITextFieldProps>(
             </StyledLeadingAdornmentWrapper>
           )}
           <StyledInputText
+            id={id}
             error={Boolean(errorMessage)}
             ref={inputRef}
             {...inputTextProps}

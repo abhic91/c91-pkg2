@@ -23,4 +23,5 @@ export type IButtonProps = HTMLAttributes<HTMLButtonElement> & {
   leadingIcon?: ReactNode;
   trailingIcon?: ReactNode;
   iconOnly?: boolean;
+  as?: keyof JSX.IntrinsicElements;
 };

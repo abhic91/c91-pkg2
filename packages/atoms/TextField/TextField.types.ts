@@ -16,4 +16,6 @@ export type ITextFieldProps = {
 
   leadingInputAdornment?: string | React.ReactNode;
   trailingInputAdornment?: string | React.ReactNode[] | React.ReactNode;
+
+  wrapperProps?: HTMLProps<HTMLDivElement>;
 };

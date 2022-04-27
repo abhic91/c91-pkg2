@@ -11,9 +11,8 @@ const OverlayShowAnimation = keyframes`
 `;
 
 const ContentShowAnimation = keyframes`
-    0% { opacity: 0; transform: translateY(-150%) scale(.6) };
-    50% { opacity: 0.4; };
-  100% { opacity: 1;  transform: translateY(0%) scale(1) };
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) };
+  100% { opacity: 1;  transform: translate(-50%, -50%) scale(1) };
 `;
 //TODO: USE ALIAS
 const StyledOverlay = styled(DialogPrimitive.Overlay)`
@@ -33,19 +32,35 @@ const StyledContent = styled(DialogPrimitive.Content)`
   box-shadow: 0px 1px 2px #7d57fd;
   background-color: white;
   padding: 1.5rem;
-  transform-origin: center;
+  padding-bottom: 3rem;
+  max-height: 90vh;
+  overflow: auto;
+  min-width: 40vw;
 `;
 
 const StyledTitle = styled(DialogPrimitive.Title)`
   margin-bottom: 1rem;
 `;
 
-const StyledDesciption = styled(DialogPrimitive.Description)``;
+const StyledDesciption = styled(DialogPrimitive.Description)`
+  margin: 1.5rem 0;
+`;
 
 const StyledCloseButtonWrapper = styled(DialogPrimitive.DialogClose)`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 12px;
+  right: 12px;
+`;
+
+const StyledStickyFooterWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0px -2px 4px -2px #1018280f, 0px -4px 8px -2px #1018281a;
+  background-color: white;
+  padding: 1rem;
 `;
 
 const Modal = ({
@@ -56,6 +71,7 @@ const Modal = ({
   noCloseBtn,
   children,
   DialogTrigger,
+  stickyFooterContent,
 }: IModalProps) => {
   return (
     <DialogPrimitive.Root open={isOpen}>
@@ -74,6 +90,11 @@ const Modal = ({
                 x
               </Button>
             </StyledCloseButtonWrapper>
+          )}
+          {stickyFooterContent && (
+            <StyledStickyFooterWrapper>
+              {stickyFooterContent}
+            </StyledStickyFooterWrapper>
           )}
         </StyledContent>
       </DialogPrimitive.Portal>

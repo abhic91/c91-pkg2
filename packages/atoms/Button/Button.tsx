@@ -57,9 +57,9 @@ const StyledButton = styled.button`
 `;
 
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-  (props: IButtonProps, ref) => {
+  ({ as, ...props }: IButtonProps, ref) => {
     return (
-      <StyledButton data-testid="button" {...props} ref={ref}>
+      <StyledButton data-testid="button" {...props} ref={ref} as={as}>
         {props.leadingIcon && <span>{props.leadingIcon}</span>}
         {props.children}
         {props.trailingIcon && <span>{props.trailingIcon}</span>}
